@@ -10,11 +10,11 @@ Python latest edition should be installed in your machine
 ##### 1. Navigate to your working directory 
 Ex: `cd E:\workspace\training\flask` 
 
-##### 1. Create virual environment 
-Linux: `python3 -m venv venv`
+##### 2. Create virual environment 
+Linux: `python3 -m venv venv` 
 Windows: `py -3 -m venv venv`
 
-##### 2. Install Flask
+##### 3. Install Flask
 `pip install Flask` 
 
 ### License
