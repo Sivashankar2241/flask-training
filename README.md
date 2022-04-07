@@ -17,7 +17,10 @@ Linux: `python3 -m venv venv`
 
 Windows: `py -3 -m venv venv`
 
-##### 3. Install Flask
+##### 3. Activate virtual environment
+`venv\Scripts\activate`
+
+##### 4. Install Flask
 `pip install Flask` 
 
 
