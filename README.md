@@ -1,4 +1,4 @@
-# mahbub-django-project (MEDPro)
+# flask-project (FPro)
 ### _Code repo for awesome Flask group @ C-TEA campus @ LT Mysuru_
 
 Created by the group _Flask People_ for the group _Flask People_.
