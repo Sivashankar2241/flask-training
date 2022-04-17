@@ -8,15 +8,25 @@ app.secret_key = 'W_1f$sjfdf72masbasdjad^63MSDFKajow9102SFjfsl'
 
 MY_DB = 'students.db'
 
-
-@app.route('/')
-def index():
+def init_db():
     con = sqlite3.connect(MY_DB)
 
-    con.execute("CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY AUTOINCREMENT, student_name TEXT NOT NULL, class_name TEXT NOT NULL, roll_no TEXT NOT NULL)")
+    con.execute(
+        '''
+        CREATE TABLE IF NOT EXISTS students (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            student_name TEXT NOT NULL, 
+            class_name TEXT NOT NULL, 
+            roll_no TEXT NOT NULL
+        )
+        '''
+    )
 
     con.close()
 
+
+@app.route('/')
+def index():
     return render_template('index.html')
 
 
@@ -83,10 +93,14 @@ def edit(id):
                 msg = 'Error updating rerord'
 
         else:
-            conn.row_factory = sqlite3.Row
-            cur = conn.cursor()
-            cur.execute('SELECT * FROM students WHERE id=?', id)
-            row = cur.fetchone()
+            try:
+                conn.row_factory = sqlite3.Row
+                cur = conn.cursor()
+                cur.execute('SELECT * FROM students WHERE id=?', id)
+                row = cur.fetchone()
+            except:
+                flash('No record found')
+                return redirect(url_for('read'))
 
     return render_template('edit.html', msg=msg, row=row)
 
@@ -105,6 +119,8 @@ def delete(id):
             flash(msg)
             return redirect(url_for('read'))
 
+
+init_db()
 
 if __name__ == '__main__':
     app.run(debug=True)
