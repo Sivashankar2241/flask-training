@@ -4,6 +4,10 @@
 <body>
   <a href="/">Go back</a>
 
+  {% for message in form.name.errors %}
+  <div>{{ message }}</div>
+  {% endfor %}
+
   <form method="POST" action="/add">
     {{ form.hidden_tag() }}
     <p>
@@ -26,6 +30,7 @@
       {{form.submit}}
     </p>
   </form>
+  
   <p>
     {% if msg %}
     {{msg}}
