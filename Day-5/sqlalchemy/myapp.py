@@ -9,7 +9,6 @@ app.config['SECRET_KEY'] = 'AS62nsfjadsaj_@dfjfsfhbf182sfjdfASFAKSF'
 
 db = SQLAlchemy(app)
 
-
 class Student(db.Model):
     id = db.Column('id', db.Integer, primary_key=True)
     name = db.Column(db.String(100))

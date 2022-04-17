@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <a href="/">Go back</a>
+
+  <form method="POST" action="/add">
+    {{ form.hidden_tag() }}
+    <p>
+      {{form.name.label}}
+      {{form.name}}
+    </p>
+    <p>
+      {{form.gender.label}}
+      {{form.gender}}
+    </p>
+    <p>
+      {{form.class_name.label}}
+      {{form.class_name}}
+    </p>
+    <p>
+      {{form.roll_no.label}}
+      {{form.roll_no}}
+    </p>
+    <p>
+      {{form.submit}}
+    </p>
+  </form>
+  <p>
+    {% if msg %}
+    {{msg}}
+    {% endif %}
+  </p>
+
+</body>
+
+</html>
